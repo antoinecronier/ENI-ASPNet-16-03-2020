@@ -1,4 +1,5 @@
 ﻿using Module2Demo.Entities;
+using Module2Demo.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,54 @@ namespace Module2Demo
                 jeux.ElementAt(i).play();
             }
 
+            Console.WriteLine(Extension.Add(10, 12));
+            int a = 10;
+            Console.WriteLine(a.Add(12));
+
+            String b = "aizpepoazipe";
+            Console.WriteLine(b.Add("11111"));
+
+            Func<String> func1 = new Func<string>(() =>
+            {
+                return "func1";
+            });
+
+            Console.WriteLine(func1.Invoke());
+
+            Func<int,int,String> func2 = new Func<int, int, String>((i,j) =>
+            {
+                return "produit i et j => " + (i*j);
+            });
+
+            Console.WriteLine(func2.Invoke(10,12));
+
+            func2 = func2Test;
+
+            Console.WriteLine(func2.Invoke(10, 12));
+
+            Action a1 = new Action(() =>
+            {
+                Console.WriteLine("in a1");
+                Console.WriteLine(func2.Invoke(10, 12));
+            });
+
+            a1.Invoke();
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 0; i < 10000; i++)
+                {
+                    Console.WriteLine(i);
+                }
+            });
+
+
             Console.ReadKey();
+        }
+
+        private static String func2Test(int toto, int tata)
+        {
+            return "produit toto et tata => " + (toto * tata);
         }
     }
 }
