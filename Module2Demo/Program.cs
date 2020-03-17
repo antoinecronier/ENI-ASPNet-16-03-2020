@@ -94,6 +94,7 @@ namespace Module2Demo
                 }
             });
 
+            jeux.Where(x => x.Name.Equals("bataille"));
 
             Console.ReadKey();
         }
