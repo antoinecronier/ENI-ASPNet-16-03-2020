@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +14,8 @@ namespace TPModule5_2.Models
         public List<SelectListItem> Ingredients { get; set; } = new List<SelectListItem>();
         public List<SelectListItem> Pates { get; set; } = new List<SelectListItem>();
 
-        public int IdPate { get; set; }
+        [Required]
+        public int? IdPate { get; set; }
         public List<int> IdsIngredients { get; set; } = new List<int>();
         
     }
