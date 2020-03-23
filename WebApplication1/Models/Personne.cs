@@ -43,5 +43,13 @@ namespace WebApplication1.Models
 			set { role = value; }
 		}
 
+		private Guid guid;
+
+		public Guid Guid
+		{
+			get { return guid; }
+			set { guid = value; }
+		}
+
 	}
 }
