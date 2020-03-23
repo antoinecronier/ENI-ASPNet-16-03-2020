@@ -20,5 +20,9 @@ namespace WebApplication1.Data
         }
 
         public System.Data.Entity.DbSet<TPModule5_2_BO.Pate> Pates { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Personne> Personnes { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Role> Roles { get; set; }
     }
 }

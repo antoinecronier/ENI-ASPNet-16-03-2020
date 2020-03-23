@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TPModule5_2_BO;
 using WebApplication1.Data;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class PatesController : Controller
+    public class PersonnesController : Controller
     {
         private WebApplication1Context db = new WebApplication1Context();
 
-        // GET: Pates
+        // GET: Personnes
         public ActionResult Index()
         {
-            return View(db.Pates.ToList());
+            return View(db.Personnes.ToList());
         }
 
-        // GET: Pates/Details/5
+        // GET: Personnes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pate pate = db.Pates.Find(id);
-            if (pate == null)
+            Personne personne = db.Personnes.Find(id);
+            if (personne == null)
             {
                 return HttpNotFound();
             }
-            return View(pate);
+            return View(personne);
         }
 
-        // GET: Pates/Create
+        // GET: Personnes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pates/Create
+        // POST: Personnes/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom")] Pate pate)
+        public ActionResult Create([Bind(Include = "Id,Nom,Prenom")] Personne personne)
         {
             if (ModelState.IsValid)
             {
-                db.Pates.Add(pate);
+                db.Personnes.Add(personne);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pate);
+            return View(personne);
         }
 
-        // GET: Pates/Edit/5
+        // GET: Personnes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pate pate = db.Pates.Find(id);
-            if (pate == null)
+            Personne personne = db.Personnes.Find(id);
+            if (personne == null)
             {
                 return HttpNotFound();
             }
-            return View(pate);
+            return View(personne);
         }
 
-        // POST: Pates/Edit/5
+        // POST: Personnes/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom")] Pate pate)
+        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom")] Personne personne)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pate).State = EntityState.Modified;
+                db.Entry(personne).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(pate);
+            return View(personne);
         }
 
-        // GET: Pates/Delete/5
+        // GET: Personnes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pate pate = db.Pates.Find(id);
-            if (pate == null)
+            Personne personne = db.Personnes.Find(id);
+            if (personne == null)
             {
                 return HttpNotFound();
             }
-            return View(pate);
+            return View(personne);
         }
 
-        // POST: Pates/Delete/5
+        // POST: Personnes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pate pate = db.Pates.Find(id);
-            db.Pates.Remove(pate);
+            Personne personne = db.Personnes.Find(id);
+            db.Personnes.Remove(personne);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
