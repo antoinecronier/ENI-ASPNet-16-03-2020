@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DBC07E75-526C-4383-9000-60391A6F4614}</ProjectGuid>
+    <ProjectGuid>{7398A0E0-2E0C-4922-B205-0A8CDA9A3292}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication1</RootNamespace>
-    <AssemblyName>WebApplication1</AssemblyName>
+    <RootNamespace>TPModule6_1</RootNamespace>
+    <AssemblyName>TPModule6-1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -126,26 +126,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArmesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonnesController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Data\WebApplication1Context.cs" />
+    <Compile Include="Controllers\SamouraisController.cs" />
+    <Compile Include="Data\TPModule6_1Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003230916112_addGuid.cs" />
-    <Compile Include="Migrations\202003230916112_addGuid.Designer.cs">
-      <DependentUpon>202003230916112_addGuid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003230920418_addPateAndPizza.cs" />
-    <Compile Include="Migrations\202003230920418_addPateAndPizza.Designer.cs">
-      <DependentUpon>202003230920418_addPateAndPizza.cs</DependentUpon>
+    <Compile Include="Migrations\202003231441495_TPModule6-1-base-db.cs" />
+    <Compile Include="Migrations\202003231441495_TPModule6-1-base-db.Designer.cs">
+      <DependentUpon>202003231441495_TPModule6-1-base-db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Personne.cs" />
-    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\SamouraiViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\TestValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -158,7 +152,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -183,16 +177,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Personnes\Create.cshtml" />
-    <Content Include="Views\Personnes\Delete.cshtml" />
-    <Content Include="Views\Personnes\Details.cshtml" />
-    <Content Include="Views\Personnes\Edit.cshtml" />
-    <Content Include="Views\Personnes\Index.cshtml" />
-    <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\Roles\Details.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Armes\Create.cshtml" />
+    <Content Include="Views\Armes\Delete.cshtml" />
+    <Content Include="Views\Armes\Details.cshtml" />
+    <Content Include="Views\Armes\Edit.cshtml" />
+    <Content Include="Views\Armes\Index.cshtml" />
+    <Content Include="Views\Samourais\Create.cshtml" />
+    <Content Include="Views\Samourais\Delete.cshtml" />
+    <Content Include="Views\Samourais\Details.cshtml" />
+    <Content Include="Views\Samourais\Edit.cshtml" />
+    <Content Include="Views\Samourais\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,17 +205,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TPModule5-2-BO\TPModule5-2-BO.csproj">
-      <Project>{6066eaaa-6025-49bc-a1f3-fc6447c42cd9}</Project>
-      <Name>TPModule5-2-BO</Name>
+    <ProjectReference Include="..\TPModule6-1-BO\TPModule6-1-BO.csproj">
+      <Project>{0bba0441-0ab7-4112-946b-521c9cec7367}</Project>
+      <Name>TPModule6-1-BO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003230916112_addGuid.resx">
-      <DependentUpon>202003230916112_addGuid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003230920418_addPateAndPizza.resx">
-      <DependentUpon>202003230920418_addPateAndPizza.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003231441495_TPModule6-1-base-db.resx">
+      <DependentUpon>202003231441495_TPModule6-1-base-db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -240,9 +231,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50291</DevelopmentServerPort>
+          <DevelopmentServerPort>56649</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50291/</IISUrl>
+          <IISUrl>http://localhost:56649/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

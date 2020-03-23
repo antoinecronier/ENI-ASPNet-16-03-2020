@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using TPModule5_2_BO;
 
 namespace WebApplication1.Models
 {
@@ -21,6 +22,7 @@ namespace WebApplication1.Models
 
 		private String nom;
 
+		[Required]
 		public String Nom
 		{
 			get { return nom; }
@@ -51,5 +53,20 @@ namespace WebApplication1.Models
 			set { guid = value; }
 		}
 
+		private List<Pate> pates;
+
+		public virtual List<Pate> Pates
+		{
+			get { return pates; }
+			set { pates = value; }
+		}
+
+		private List<Pizza> pizzas;
+
+		public List<Pizza> Pizzas
+		{
+			get { return pizzas; }
+			set { pizzas = value; }
+		}
 	}
 }

@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Data
+namespace TPModule6_1.Data
 {
-    public class WebApplication1Context : DbContext
+    public class TPModule6_1Context : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,18 +15,12 @@ namespace WebApplication1.Data
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public WebApplication1Context() : base("name=WebApplication1Context")
+        public TPModule6_1Context() : base("name=TPModule6_1Context")
         {
-            if (this.Database.CreateIfNotExists())
-            {
-
-            }
         }
 
-        public System.Data.Entity.DbSet<TPModule5_2_BO.Pate> Pates { get; set; }
+        public System.Data.Entity.DbSet<BO.Arme> Armes { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication1.Models.Personne> Personnes { get; set; }
-
-        public System.Data.Entity.DbSet<WebApplication1.Models.Role> Roles { get; set; }
+        public System.Data.Entity.DbSet<BO.Samourai> Samourais { get; set; }
     }
 }
