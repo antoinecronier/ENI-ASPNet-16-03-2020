@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202003231441495_TPModule6-1-base-db.Designer.cs">
       <DependentUpon>202003231441495_TPModule6-1-base-db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003241448184_ArtMartial.cs" />
+    <Compile Include="Migrations\202003241448184_ArtMartial.Designer.cs">
+      <DependentUpon>202003241448184_ArtMartial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SamouraiViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +223,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003231441495_TPModule6-1-base-db.resx">
       <DependentUpon>202003231441495_TPModule6-1-base-db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003241448184_ArtMartial.resx">
+      <DependentUpon>202003241448184_ArtMartial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
