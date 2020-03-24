@@ -22,5 +22,7 @@ namespace TPModule6_1.Data
         public System.Data.Entity.DbSet<BO.Arme> Armes { get; set; }
 
         public System.Data.Entity.DbSet<BO.Samourai> Samourais { get; set; }
+
+        public System.Data.Entity.DbSet<BO.ArtMartial> ArtMartials { get; set; }
     }
 }
