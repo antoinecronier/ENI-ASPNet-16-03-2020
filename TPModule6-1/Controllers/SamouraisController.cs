@@ -43,7 +43,8 @@ namespace TPModule6_1.Controllers
             SamouraiViewModel vm = new SamouraiViewModel();
             List<int> armeIds = db.Samourais.Where(x => x.Arme != null).Select(x => x.Arme.Id).ToList();
             vm.Armes = db.Armes.Where(x => !armeIds.Contains(x.Id)).ToList();
-            vm.ArtMartials = db.ArtMartials.ToList();
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
             return View(vm);
         }
 
@@ -78,7 +79,8 @@ namespace TPModule6_1.Controllers
 
             List<int> armeIds = db.Samourais.Where(x => x.Arme != null).Select(x => x.Arme.Id).ToList();
             vm.Armes = db.Armes.Where(x => !armeIds.Contains(x.Id)).ToList();
-            vm.ArtMartials = db.ArtMartials.ToList();
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
 
             return View(vm);
         }
@@ -103,8 +105,9 @@ namespace TPModule6_1.Controllers
             {
                 vm.IdSelectedArme = vm.Samourai.Arme.Id;
             }
-            
-            vm.ArtMartials = db.ArtMartials.ToList();
+
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
             vm.ArtMartialsIds = vm.Samourai.ArtMartials.Select(x => x.Id).ToList();
 
             return View(vm);
@@ -152,15 +155,20 @@ namespace TPModule6_1.Controllers
                     currentSamourai.Arme = null;
                 }
 
-                currentSamourai.ArtMartials.ForEach((x) =>
-                {
-                    if (vm.ArtMartialsIds.Contains(x.Id))
-                    {
-                        vm.ArtMartialsIds.Remove(x.Id);
-                    }
-                });
+                //currentSamourai.ArtMartials.ForEach((x) =>
+                //{
+                //    if (vm.ArtMartialsIds.Contains(x.Id))
+                //    {
+                //        vm.ArtMartialsIds.Remove(x.Id);
+                //    }
+                //});
 
-                currentSamourai.ArtMartials.AddRange(db.ArtMartials.Where(x => vm.ArtMartialsIds.Contains(x.Id)).ToList());
+                //currentSamourai.ArtMartials.AddRange(db.ArtMartials.Where(x => vm.ArtMartialsIds.Contains(x.Id)).ToList());
+                foreach (var item in currentSamourai.ArtMartials)
+                {
+                    db.Entry(item).State = EntityState.Modified;
+                }
+                currentSamourai.ArtMartials = db.ArtMartials.Where(x => vm.ArtMartialsIds.Contains(x.Id)).ToList();
 
                 db.Entry(currentSamourai).State = EntityState.Modified;
                 db.SaveChanges();
@@ -174,7 +182,8 @@ namespace TPModule6_1.Controllers
                 vm.IdSelectedArme = vm.Samourai.Arme.Id;
             }
 
-            vm.ArtMartials = db.ArtMartials.ToList();
+            vm.ArtMartials.Add(new ArtMartial() { Nom = "Aucun" });
+            vm.ArtMartials.AddRange(db.ArtMartials.ToList());
             vm.ArtMartialsIds = vm.Samourai.ArtMartials.Select(x => x.Id).ToList();
 
             return View(vm);
